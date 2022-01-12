@@ -1,8 +1,8 @@
 const {listNonTerminatedContracts} = require("../../contractRepository");
 
-const listContractsUseCase =  async(Contract, profile_id) =>
+const listContractsUseCase =  async(profileId) =>
 {
-    return listNonTerminatedContracts(Contract, profile_id)
+    return listNonTerminatedContracts(profileId)
 }
 
 module.exports = listContractsUseCase

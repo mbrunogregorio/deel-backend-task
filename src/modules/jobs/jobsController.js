@@ -1,31 +1,27 @@
-const {Op} = require("sequelize");
 const getUnpaidJobsUseCase = require("../jobs/useCases/getUnpaidJobs/getUnpaidJobsUseCase");
 const payForJobsUseCase = require("../jobs/useCases/payForJob/payForJobUseCase");
+const {AppError} = require("../../shared/AppError");
 
 /**
  * Returns a list of unpaid jobs for a user
  * @returns Job[]
  */
 const getUnpaidJob = async (req, res) =>{
-    const {Job, Contract} = req.app.get('models')
-    const profile_id = req.profile.get('id')
-    const jobs = await getUnpaidJobsUseCase(Job, Contract, profile_id);
-    if(!jobs) return res.status(404).end()
+    const profileId = req.profile.id
+    const jobs = await getUnpaidJobsUseCase(profileId);
+    if(!jobs) throw new AppError('Unpaid jobs not found', 404)
     res.json(jobs)
 }
 
 /**
- * Returns a list of unpaid jobs for a user
- * @returns Job[]
+ * Pay for a job with the given id
+ * @returns
  */
 const payForJob = async (req, res) =>{
-    const {Job, Contract} = req.app.get('models')
-    const profile_id = req.profile.get('id')
-    const job_id = req.params.job_id;
-
-    const jobs = await payForJobsUseCase(Job, Contract, job_id, profile_id);
-    if(!jobs) return res.status(404).end()
-    res.json(jobs)
+    const profileId = req.profile.id
+    const jobId = req.params.job_id;
+    await payForJobsUseCase(jobId, profileId);
+    res.json()
 }
 
 module.exports = {

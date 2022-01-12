@@ -1,7 +1,7 @@
 const {getUnpaidJobs} = require("../../jobRepository");
 
-const getUnpaidJobsUseCase = async(Job, Contract, profile_id) => {
-    return getUnpaidJobs(Job, Contract, profile_id)
+const getUnpaidJobsUseCase = async(profile_id) => {
+    return getUnpaidJobs(profile_id)
 }
 
 module.exports = getUnpaidJobsUseCase
