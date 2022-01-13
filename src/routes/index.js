@@ -9,8 +9,8 @@ const routes = express.Router();
 routes.use('/contracts', contractRoutes);
 routes.use('/jobs', jobRoutes);
 
-//FIXME Would be better this path starting with /profiles/balance/ since balance is a profile information
+// FIXME Would be better this path starting with /profiles/balance/ since balance is a profile information
 routes.use('/balance', profileRoutes);
 routes.use('/admin', adminRoutes);
 
-module.exports = routes
+module.exports = routes;

@@ -1,8 +1,5 @@
-const {getJobsSumPerProfession} = require("../../../jobs/jobRepository");
+const { getJobsSumPerProfession } = require('../../../jobs/jobRepository');
 
-const getBestProfessionUsecase =  async(start, end) =>
-{
-    return getJobsSumPerProfession(start, end)
-}
+const getBestProfessionUsecase = async (start, end) => getJobsSumPerProfession(start, end);
 
-module.exports = getBestProfessionUsecase
+module.exports = getBestProfessionUsecase;

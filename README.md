@@ -124,3 +124,9 @@ When you have finished the assignment, create a github repository and send us th
   
 
 Thank you and good luck! 🙏
+
+## Possible improvements
+Here are some points o think are important and would like to implement to make the code task better, and I could not implement due the time:
+- API documentation with Swagger
+- Some unit tests with jest
+- Full useCases integration tests coverage with supertest lib(I like to follow the spotify testing approach)
