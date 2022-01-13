@@ -1,8 +1,5 @@
-const {getContractById} = require("../../contractRepository");
+const { getContractById } = require('../../contractRepository');
 
-const getContractUseCase =  async(profileId, ContractorId) =>
-{
-    return getContractById(profileId, ContractorId)
-}
+const getContractUseCase = async (profileId, ContractorId) => getContractById(profileId, ContractorId);
 
-module.exports = getContractUseCase
+module.exports = getContractUseCase;
